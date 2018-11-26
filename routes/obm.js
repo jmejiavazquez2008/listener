@@ -27,11 +27,13 @@ unwrapMessage = function(obj) {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
+    var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
     
     
 
-    return {};
+    return {
+      sfId: sfId,
+    };
 
   } catch (e) {
     console.log('Could not parse OBM XML', e);
