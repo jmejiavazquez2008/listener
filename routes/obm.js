@@ -25,13 +25,12 @@ router.post('/', function(req, res) {
 unwrapMessage = function(obj) {
   try {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
-    var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
+    
 
-
-    return {
-      orgId: orgId,
-    };
+    return {};
 
   } catch (e) {
     console.log('Could not parse OBM XML', e);
