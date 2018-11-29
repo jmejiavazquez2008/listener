@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'This is Express' });
+  res.render('index', { title: 'Stratum POC' });
 });
 
 module.exports = router;
