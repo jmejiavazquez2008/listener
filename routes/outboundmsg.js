@@ -3,10 +3,9 @@ var _ = require("lodash");
 var router = express.Router();
 
 router.post('/', function(req, res) {
-  // get the obm as an object
+  // get the message as an object
   var message = unwrapMessage(req.body);
   if (!_.isEmpty(message)) {
-    // some something #awesome with message
     console.log(message);
     // return a 'true' Ack to Salesforce
     res.send(
@@ -21,15 +20,13 @@ router.post('/', function(req, res) {
 
 });
 
-// unwrap the xml and return object
+// unwrap the xml and return sfId
 unwrapMessage = function(obj) {
   try {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-    
-    
+    var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];   
 
     return {
       sfId: sfId,
