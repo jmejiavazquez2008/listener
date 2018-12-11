@@ -25,6 +25,8 @@ unwrapMessage = function(obj) {
   try {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification);
+    console.log(Object.keys(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification).length);
+
     var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];   
 
     return {
