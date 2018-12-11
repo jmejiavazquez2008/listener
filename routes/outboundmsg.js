@@ -25,12 +25,19 @@ unwrapMessage = function(obj) {
   try {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification);
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
     console.log(Object.keys(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification).length);
-
-    var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];   
+    var numNotifications = Object.keys(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification).length;
+    var i;
+    var sobjects = [];
+    for (i = 0; i < numNotifications; i++)
+    {
+      sobjects.push(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[i]);
+    }
+//     var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];   
 
     return {
-      sfId: sfId,
+      sobjects: sobjects,
     };
 
   } catch (e) {
