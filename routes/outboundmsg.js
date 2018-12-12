@@ -24,9 +24,6 @@ router.post('/', function(req, res) {
 unwrapMessage = function(obj) {
   try {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    console.log(Object.keys(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification).length);
     var numNotifications = Object.keys(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification).length;
     var i;
     var sobjects = [];
@@ -38,7 +35,7 @@ unwrapMessage = function(obj) {
 //     var sfId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];   
 
     return {
-      NuberNotifications: numNotifications,
+      NumberOfNotifications: numNotifications,
     };
 
   } catch (e) {
