@@ -8,7 +8,7 @@
     "test": "mocha"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "^10"
   },
   "dependencies": {
     "body-parser": "~1.18.1",
