@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.post('/', function(req, res) {
   // get the message as an object
+  console.log(req.body);
   var message = unwrapMessage(req.body);
   if (!_.isEmpty(message)) {
     console.log(message);
