@@ -31,7 +31,7 @@ unwrapMessage = function(obj) {
     for (i = 0; i < numNotifications; i++)
     {
       sobjects.push(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[i].sobject[0]);
-       console.log(obj);
+       //console.log(obj);
        console.log(obj['soapenv:envelope']['soapenv:body'][0]);
        console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
        console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[i].sobject[0]);
